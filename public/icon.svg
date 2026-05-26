@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="110" fill="#1C2010"/>
+  <!-- Floor tile grid -->
+  <rect x="72"  y="210" width="152" height="108" rx="10" fill="#3A4A20"/>
+  <rect x="236" y="210" width="152" height="108" rx="10" fill="#4A5A28"/>
+  <rect x="72"  y="330" width="152" height="108" rx="10" fill="#4A5A28"/>
+  <rect x="236" y="330" width="152" height="108" rx="10" fill="#3A4A20"/>
+  <!-- Partial cut tile (right edge) -->
+  <rect x="400" y="210" width="52"  height="108" rx="8" fill="#6A2010" opacity="0.85"/>
+  <rect x="400" y="330" width="52"  height="108" rx="8" fill="#6A2010" opacity="0.85"/>
+  <!-- Accent line -->
+  <rect x="72" y="196" width="380" height="6" rx="3" fill="#8A9A2A"/>
+  <!-- AI diamond mark -->
+  <polygon points="256,80 300,124 256,168 212,124" fill="#8A9A2A"/>
+  <polygon points="256,98 284,124 256,150 228,124" fill="#1C2010"/>
+  <polygon points="256,112 272,124 256,136 240,124" fill="#8A9A2A"/>
+</svg>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- PWA / iPhone -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Floor Culc" />
+    <meta name="application-name" content="Floor Culc" />
+    <meta name="theme-color" content="#1C2010" />
+    <meta name="description" content="AI-powered floor layout calculator for professional installers" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <title>ShowCulc</title>
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body, #root {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background: #1E2416;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-text-size-adjust: 100%;
+        font-family: 'Courier New', monospace;
+      }
+      /* Remove number input spinners */
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+      input[type=number] { appearance: none; -moz-appearance: textfield; }
+      button { -webkit-appearance: none; appearance: none; }
+      /* Smooth scrolling on iOS */
+      * { -webkit-overflow-scrolling: touch; }
+
+      .app-shell { width:100%; max-width:1100px; min-height:100dvh; margin:0 auto; display:flex; flex-direction:column; overflow:hidden; }
+      .page-content { flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; padding:14px 14px 6px; }
+      .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .grid-3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+      .grid-4 { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; }
+      .top-bar { padding:12px 16px 10px; }
+
+      @media (max-width: 900px) {
+        .grid-4, .grid-3 { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+      }
+      @media (max-width: 720px) {
+        .app-shell { padding:0 8px; }
+        .page-content { padding:12px 10px 6px; }
+        .grid-2, .grid-3, .grid-4 { grid-template-columns:1fr !important; }
+        .top-bar { padding:12px 12px 10px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function () {});
+        });
+      }
+    </script>
+  </body>
+</html>
