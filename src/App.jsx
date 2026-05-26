@@ -1937,19 +1937,6 @@ export default function App(){
     setTab(id);
   }
 
-  var selB=boards.find(function(b){return b.id===selBid;})||boards[0];
-  var selV=vinyls.find(function(v){return v.id===selVid;})||vinyls[0];
-  var can=!!(quickRoom.width&&quickRoom.length&&parseFloat(quickRoom.width)>0&&parseFloat(quickRoom.length)>0);
-
-  var btex=WOOD_TEXTURES.find(function(t){return t.id===(selB&&selB.texture);});
-  var vcol=VINYL_COLORS.find(function(c){return c.id===(selV&&selV.color);});
-
-  var cardS={background:C.card,border:"2px solid "+C.cardB,borderRadius:12,padding:"14px",marginBottom:12,boxShadow:"3px 3px 0 "+C.cardB};
-  var vcardS={background:"#1A2C1A",border:"2px solid "+C.vinylDim,borderRadius:12,padding:"14px",marginBottom:12,boxShadow:"3px 3px 0 "+C.vinylDim};
-  var inpS={background:C.inp,border:"2px solid "+C.border,borderRadius:8,padding:"12px 14px",fontSize:18,fontWeight:700,color:C.t1,width:"100%",fontFamily:F,outline:"none",boxSizing:"border-box"};
-  var obtnS={width:"100%",padding:"14px",background:C.accent,border:"2px solid "+C.accentDim,borderRadius:12,color:C.topbar,fontSize:11,letterSpacing:3,fontWeight:800,cursor:"pointer",fontFamily:F,boxShadow:"3px 3px 0 "+C.accentDim};
-  var vbtnS={width:"100%",padding:"14px",background:C.vinyl,border:"2px solid "+C.vinylDim,borderRadius:12,color:"#FFF",fontSize:11,letterSpacing:3,fontWeight:800,cursor:"pointer",fontFamily:F,boxShadow:"3px 3px 0 "+C.vinylDim};
-
   if(!loaded){return <div style={{display:"flex",flexDirection:"column",height:"100dvh",background:C.bg,alignItems:"center",justifyContent:"center",gap:12}}><div style={{fontSize:32,color:C.accent}}>◈</div><div style={{fontSize:11,letterSpacing:3,color:C.t3,fontFamily:F}}>LOADING...</div></div>;}
   if(openProj){return <ProjectDetail project={openProj} boards={boards} vinyls={vinyls} stock={[]} onUpdate={updateProject} onBack={function(){setOpenProj(null); setTab("projects");}}/>;}
 
