@@ -40,6 +40,10 @@
       * { -webkit-overflow-scrolling: touch; }
 
       .app-shell { width:100%; max-width:1100px; min-height:100dvh; margin:0 auto; display:flex; flex-direction:column; overflow:hidden; }
+      .main-body { display:flex; flex:1; min-height:0; overflow:hidden; }
+      .desktop-nav { display:none; width:280px; flex-shrink:0; border-right:2px solid rgba(255,255,255,0.08); }
+      .bottom-bar { display:flex; }
+      .brand-text { display:flex; flex-direction:column; line-height:1.1; }
       .page-content { flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; padding:14px 14px 6px; }
       .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
       .grid-3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
@@ -48,6 +52,18 @@
 
       @media (max-width: 900px) {
         .grid-4, .grid-3 { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+      }
+      @media (max-width: 720px) {
+        .app-shell { padding:0 8px; }
+        .page-content { padding:12px 10px 6px; }
+        .grid-2, .grid-3, .grid-4 { grid-template-columns:1fr !important; }
+        .top-bar { padding:12px 12px 8px; }
+        .brand-text { display:none; }
+      }
+      @media (min-width: 900px) {
+        .desktop-nav { display:block; }
+        .bottom-bar { display:none; }
+        .top-bar { padding:16px 20px 14px; }
       }
       @media (max-width: 720px) {
         .app-shell { padding:0 8px; }

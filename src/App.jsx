@@ -1966,7 +1966,13 @@ export default function App(){
         {isInner?(
           <button onClick={function(){setTab("home");}} style={{background:"none",border:"none",color:C.accent,fontSize:20,cursor:"pointer",padding:"2px 6px",lineHeight:1}}>‹</button>
         ):(
-          <div style={{fontSize:18,color:C.accent}}>◈</div>
+          <div style={{display:"flex",alignItems:"center",gap:10}}>
+            <div style={{fontSize:18,color:C.accent}}>◈</div>
+            <div className="brand-text">
+              <div style={{fontSize:16,fontWeight:800,color:C.accent,letterSpacing:3}}>FLOOR CULC</div>
+              <div style={{fontSize:8,color:C.t3,letterSpacing:3,marginTop:1}}>FLOOR LAYOUT CALCULATOR</div>
+            </div>
+          </div>
         )}
         <div style={{flex:1}}>
           {isInner?(
@@ -1980,6 +1986,11 @@ export default function App(){
         </div>
         {tab==="home"&&<div style={{fontSize:9,color:C.t4,fontFamily:F,letterSpacing:1}}>{projects.length} project{projects.length!==1?"s":""}</div>}
       </div>
+
+      <div className="main-body" style={{display:"flex",minHeight:0}}>
+        <aside className="desktop-nav">
+          <MenuScreen onNav={function(id){navTo(id); setTab(id==="results_vinyl"?"results":id);}} projects={projects} boards={boards} vinyls={vinyls} stock={[]}/>
+        </aside>
 
       {/* CONTENT */}
       <div className="page-content" style={{flex:1}}>
@@ -2146,9 +2157,10 @@ export default function App(){
         )}
 
       </div>
+      </div>
 
       {/* ── BOTTOM BAR: only Home + Menu ── */}
-      <div style={{display:"flex",background:C.topbar,borderTop:"2px solid "+C.accent,flexShrink:0,paddingBottom:"env(safe-area-inset-bottom,0px)"}}>
+      <div className="bottom-bar" style={{display:"flex",background:C.topbar,borderTop:"2px solid "+C.accent,flexShrink:0,paddingBottom:"env(safe-area-inset-bottom,0px)"}}>
         <button onClick={function(){setTab("home");}} style={{flex:1,padding:"10px 4px 8px",background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:3,opacity:tab==="home"?1:0.4}}>
           <span style={{fontSize:20,filter:tab==="home"?"none":"grayscale(1)"}}>🏠</span>
           <span style={{fontSize:8,letterSpacing:2,color:tab==="home"?C.accent:C.t3,fontFamily:F,fontWeight:tab==="home"?700:400}}>HOME</span>
